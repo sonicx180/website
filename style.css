@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Hubballi');
+
+
+body{
+  text-align:center;
+ background-image:url(sky2.png);
+  background-size:cover;
+}
+
+p{
+  font-family: Gerogia;
+  margin:1;
+}
+
+#nav{
+  font-family:"Hubballi" , Helvetica;
+ 
+}
+#nav > a {
+  color:#ffb005 !important;
+}
+
+a:hover {
+  color:#24f94f !important;
+}
+
+#header {
+  font-family:cursive;
+  margin:1;
+}
+input {
+  border-style:dashed;
+}
+#projects {
+  margin:1;
+}
