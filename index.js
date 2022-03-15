@@ -1,3 +1,4 @@
+var express = require('express')
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser')
@@ -43,7 +44,9 @@ app.post('/add-work',(req,res) => {
     res.send("Failed")
   }
 })
+
+app.get("*" , renderFile("404.html"))
 app.listen(3000,(err) => {
   if (err) console.error(err)
-  console.log("Running on port 3000")
+  else console.log("Running on port 3000")
 })

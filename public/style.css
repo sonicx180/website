@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Hubballi|Poppins');
+
+
+body{
+  text-align:center;
+ background-image:url(sky3.jpg);
+  background-size:cover;
+}
+
+p{
+  font-family: 'Poppins' , Helvetica;
+  margin:7px;
+}
+
+#nav{
+  font-family:"Hubballi" , Helvetica;
+  margin:10px;
+
+
+
+}
+/*#nav > a {
+  color:var(--url-color) !important;
+}*/
+
+a:hover {
+  color:#24f94f !important;
+}
+
+.header {
+  font-family:cursive;
+  margin:5px;
+}
+input {
+  border-style:dashed;
+}
+#projects {
+  margin:1px;
+  overflow:auto;
+}
+a {
+  color:#ffb005;
+}
+/* Ahh , space */
+#indexh {
+  margin:20px;
+}
+
+
+/* Make it fair for phones  too ! :D */
+
+  #indexh > .header {
+    background-color:yellow;
+    left:45vw;
+    bottom:70vh;
+    position:absolute;
+  }
+
+#work {
+  border:5px ridge #ff6600;
+  overflow:auto;
+}
+
+#work > h3 {
+  font-family:Helvetica;  
+}
+#work > h3,
+#work > p,
+#work > a {
+padding:3px;
+  
+}
+
+/* Cursive doesn't look good on phones so ... */
+
+@media (max-width:500px){
+  #indexh > .header {
+    font-family:Helvetica;
+  }
+  
+}

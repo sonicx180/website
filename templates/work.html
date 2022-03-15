@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset = "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> Sonicx180</title>
+  	<link rel="stylesheet" href="/public/style.css">
+  </head>
+  <body>
+    <nav id = "nav"><a href = '/'>Home</a> ,<a href ='/about'> About </a> , <a href = '/work'> Work </a></nav>
+
+   <h2 class = "header">Work </h2><br>
+   <div id = "projects"></div>
+   <script>
+   (async function() {
+     let data =  await fetch("/api/projects").then(r => r.json());
+     var workdiv = document.getElementById("projects");
+      for(var d of data){
+     workdiv.innerHTML += `<div id = "work"><h3>${d.title}</h3><p>${d.description}</p><a href = "${d.url}" target = "_blank">${d.url}</a></div><br> `;
+      }
+   })();
+   </script>
+  </body>
+</html>
