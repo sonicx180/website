@@ -36,7 +36,7 @@ input {
 }
 #projects {
   margin:1px;
-  overflow:auto;
+ 
 }
 a {
   color:#ffb005;
@@ -58,7 +58,7 @@ a {
 
 #work {
   border:5px ridge #ff6600;
-  overflow:auto;
+
 }
 
 #work > h3 {
@@ -78,4 +78,8 @@ padding:3px;
     font-family:Helvetica;
   }
   
+}
+
+#workbody {
+  overflow:auto;
 }
