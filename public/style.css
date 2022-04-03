@@ -40,6 +40,7 @@ input {
 }
 a {
   color:#ffb005;
+  text-decoration:none;
 }
 /* Ahh , space */
 #indexh {
@@ -67,7 +68,7 @@ a {
 #work > h3,
 #work > p,
 #work > a {
-padding:3px;
+padding:7px;
   
 }
 

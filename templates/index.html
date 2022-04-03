@@ -8,7 +8,7 @@
  <meta property="og:image" content="/public/sky.png">
     <meta property="og:image:type" content="image/png"/>
     <title> Sonicx180</title>
-  	<link rel="stylesheet" href="/public/style.css">
+  	<link id = "style" rel="stylesheet" href="/public/style.css">
     <script src = "https://unpkg.com/feather-icons"></script>
   </head>
   <body background = "IMAGE">
@@ -16,9 +16,19 @@
     <div id = "indexh"><h2 class = "header"> Sonicx180</h2>
     <img src = "/public/sky2.png">
     </div>
+
+    <br>
+    <button id = "rmcss"> Remove the Style</button>
     <p> HTML , CSS , JS , PYTHON (a bit) , NODEJS</p>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> <!-- So many br's :D -->
 
-    <h6 style = "font-size:0.3em"><a href = "/admin">Admin Dashboard</a></h6>
+    <h6 style = "font-size:0.2em"><a href = "/admin">Admin Dashboard</a></h6>
+    <script>
+      var rmcss = document.getElementById("rmcss");
+      rmcss.addEventListener("click",(evt) => {
+        evt.preventDefault();
+        document.getElementById("style").href = "";
+      })
+    </script>
   </body>
 </html>
