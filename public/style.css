@@ -3,8 +3,10 @@
 
 body{
   text-align:center;
- background-image:url(sky3.jpg);
+ /*background-image:url(sky3.jpg);
   background-size:cover;
+  */
+  background:gray;
 }
 
 p{
@@ -59,7 +61,8 @@ a {
 
 #work {
   border:5px ridge #ff6600;
-
+  background-color:lightcyan;
+  margin:8px;
 }
 
 #work > h3 {
