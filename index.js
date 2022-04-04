@@ -10,10 +10,12 @@ mongoose.connect(process.env.M_URI);
 var projectSchema = new Schema({
   title:String,
   description:String,
+  imageURL:String,
   url:String
 })
 
 var Project = mongoose.model("Project",projectSchema);
+
 app.use("/public", express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended:false}))
 // Thanks to IronCladDev for this function
@@ -35,9 +37,13 @@ app.post('/add-work',(req,res) => {
     var proj = new Project({
       title:req.body.title,
       description:req.body.description,
+      imageURL:req.body['i-url'],
       url:req.body.url
     })
     proj.save();
+    res.cookie("admin", process.env.admin)
+
+
     res.redirect('/work')
   }
   else {
@@ -46,7 +52,7 @@ app.post('/add-work',(req,res) => {
 })
 
 app.get("*" , renderFile("404.html"))
-app.listen(3000,(err) => {
-  if (err) console.error(err)
-  else console.log("Running on port 3000")
+app.listen(3025,(err) => {
+  if(err) console.log(err)
+  else console.log("running on port 3025")
 })
