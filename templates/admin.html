@@ -19,7 +19,10 @@
       <input name = "password" size = 12 type = "password"  required><br><br>
       <input type = "submit" value = "Submit">
     </form>
-
+    <h2 class = "header"> Edit Work</h2>
+    <form action = "/edit-proj" method = "POST">
+      <select name = "projid" id = "projid-2"></select>
+    </form>
     <h2 class = "header"> Remove from Work </h2>
     <form action = "/del-proj" method = 'post'>
       <select name = "projid" id = "projid-1"></select>
@@ -34,7 +37,8 @@
       (async () => {
         let projects = await fetch("/api/projects").then(r => r.json())
         for(var p of projects){
-          document.getElementById("projid-1").innerHTML += `<option value = "${p._id}">${p.title}</option>`
+          document.getElementById("projid-1").innerHTML += `<option value = "${p._id}">${p.title}</option>`;
+          document.getElementById("projid-2").innerHTML += `<option value = "${p._id}">${p.title}</option>`;
         }
         
       })();
