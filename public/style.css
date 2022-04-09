@@ -94,6 +94,11 @@ padding:7px;
   }
   
 }
+@media (max-width:490px){
+  body:not(#workbody):not(#aboutp){
+   overflow-x:hidden; 
+  }
+}
 
 #workbody {
   overflow:auto;
