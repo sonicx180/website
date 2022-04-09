@@ -3,6 +3,7 @@ var app = express();
 var path = require('path');
 var bodyParser = require('body-parser')
 var mongoose = require('mongoose')
+var cookieParser = require('cookie-parser');
 var Schema = mongoose.Schema;
 mongoose.connect(process.env.M_URI);
 
@@ -15,7 +16,7 @@ var projectSchema = new Schema({
 })
 
 var Project = mongoose.model("Project",projectSchema);
-
+app.use(cookieParser())
 app.use("/public", express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended:false}))
 // Thanks to IronCladDev for this function
@@ -23,7 +24,14 @@ function renderFile(file) {
   return (req, res) => res.sendFile(path.join(__dirname, "/templates/" + file))
 }
 app.get('/', renderFile('index.html'))
-app.get('/admin', renderFile('admin.html'))
+app.get('/admin',(req,res) => {
+  if(req.cookies.admin == process.env.admin){
+    res.sendFile(__dirname + "/templates/admin.html")
+  }
+  else {
+    res.send("<h1>Login In</h1>")
+  }
+})
 app.get('/work', renderFile('work.html'))
 app.get('/about', renderFile('about.html'))
 // Thanks to IronCladDev
@@ -41,18 +49,31 @@ app.post('/add-work',(req,res) => {
       url:req.body.url
     })
     proj.save();
-    res.cookie("admin", process.env.admin)
+   
 
 
     res.redirect('/work')
   }
   else {
-    res.send("Failed")
+    res.send("Failed, don't hack me")
+  }
+})
+app.post("/del-proj",(req,res) => {
+  if(req.body.password == process.env.pass){
+    Project.remove({ _id: req.body.projid},(err,d) => {
+      if(err) console.log(err)
+      else res.redirect("/work")
+    })
+
+  }
+  else {
+    res.send("Don't try and hack me >:D")
   }
 })
 
 app.get("*" , renderFile("404.html"))
 app.listen(3025,(err) => {
+  console.clear()
   if(err) console.log(err)
   else console.log("running on port 3025")
 })

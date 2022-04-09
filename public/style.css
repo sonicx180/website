@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Hubballi|Poppins');
+@import url('https://fonts.googleapis.com/css?family=Hubballi|Poppins|Luckiest+Guy');
 
 
 body{
@@ -17,25 +17,34 @@ p{
 #nav{
   font-family:"Hubballi" , Helvetica;
   margin:10px;
+  padding:9px;
 
-
-
+}
+.nav {
+  border:8px ridge blue;
+  width:95%;
+  justify-content:center;
+  margin-left:auto;
+  margin-right:auto;
 }
 /*#nav > a {
   color:var(--url-color) !important;
 }*/
 
+form {
+  margin:13px;
+}
 a:hover {
   color:#24f94f !important;
 }
 
 .header {
   font-family:cursive;
-  margin:5px;
+  margin:10px;
 }
 input {
   border-style:dashed;
-  height:35px;
+  height:20px;
 }
 #projects {
   margin:2px;
@@ -77,11 +86,11 @@ padding:7px;
   
 }
 
-/* Cursive doesn't look good on phones so ... */
 
 @media (max-width:500px){
   #indexh > .header {
-    font-family:Helvetica;
+    padding:8px;
+    font-family:'Luckiest Guy', Helvetica;
   }
   
 }

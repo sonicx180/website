@@ -19,10 +19,25 @@
       <input name = "password" size = 12 type = "password"  required><br><br>
       <input type = "submit" value = "Submit">
     </form>
+
+    <h2 class = "header"> Remove from Work </h2>
+    <form action = "/del-proj" method = 'post'>
+      <select name = "projid" id = "projid-1"></select>
+      <input name = "password" type = "password">
+      <input type = "submit" value = "Submit">
+    </form>
     <script>
      // if(!document.cookie){
         //document.body.innerHTML = "<h1> Login to the Dashboard </h1>"
      // }
+ // Thanks to github.com/conner1115/PortfolioV4
+      (async () => {
+        let projects = await fetch("/api/projects").then(r => r.json())
+        for(var p of projects){
+          document.getElementById("projid-1").innerHTML += `<option value = "${p._id}">${p.title}</option>`
+        }
+        
+      })();
     </script>
   </body>
 </html>

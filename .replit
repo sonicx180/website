@@ -1,1 +1,2 @@
-run="npx nodemon -x 'bash main.sh || touch main.sh'"
+language = "nodejs"
+run="npx nodemon -x 'node index.js || touch index.js'"
