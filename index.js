@@ -59,21 +59,7 @@ app.post('/add-work',(req,res) => {
   }
 })
 
-app.post("/edit-proj",(req,res) => {
-  if(req.body.password == process.env.pass){
-    Project.find({_id:req.body.projid},(err,d) => {
-      if(err) console.log(err)
-      else {
-        d.title = req.body.title;
-        d.description = req.body.desc;
-        d.url = req.body.url;
-        d.save((e,D) => {
-  
-   
-      }                 
-    })
-  }
-})
+
 app.post("/del-proj",(req,res) => {
   if(req.body.password == process.env.pass){
     Project.remove({ _id: req.body.projid},(err,d) => {
@@ -87,9 +73,4 @@ app.post("/del-proj",(req,res) => {
   }
 })
 
-app.get("*" , renderFile("404.html"))
-app.listen(3025,(err) => {
-  console.clear()
-  if(err) console.log(err)
-  else console.log("running on port 3025")
-})
+app.listen(3025)
