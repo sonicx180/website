@@ -58,7 +58,24 @@ app.post('/add-work',(req,res) => {
     res.send("Failed, don't hack me")
   }
 })
+app.post("/edit-proj",(req,res) => {
+  if(req.body.password == process.env.pass) {
+    Project.findOne({ _id:req.body.projid},(e,d) => {
+     if(e) console.log(e);
+      else {
+        d.title = req.body.title;
+        d.description = req.body.desc;
+        d.url = req.body.url;
 
+        d.save((e,D) => {
+          if(e) console.log(e)
+
+          else res.redirect("/work")
+        })
+      }
+    })
+  }
+})
 
 app.post("/del-proj",(req,res) => {
   if(req.body.password == process.env.pass){
