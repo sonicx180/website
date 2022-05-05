@@ -16,7 +16,7 @@
    (async function() {
      let data =  await fetch("/api/projects").then(r => r.json());
      var workdiv = document.getElementById("projects");
-      for(var d of data){
+      for(var d of data.reverse()){
      workdiv.innerHTML += `<div id = "work"><h3>${d.title}</h3> <img src = "${d.imageURL}"><p>${d.description}</p><a href = "${d.url}" target = "_blank">${d.url}</a></div><br> `;
       }
    })();

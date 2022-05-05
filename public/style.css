@@ -26,6 +26,9 @@ p{
   justify-content:center;
   margin-left:auto;
   margin-right:auto;
+  float:auto;
+ 
+  
 }
 /*#nav > a {
   color:var(--url-color) !important;
@@ -107,4 +110,7 @@ padding:7px;
 #work > img {
   width:45%;
 
+}
+img {
+  width:35%;
 }

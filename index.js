@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var Schema = mongoose.Schema;
 mongoose.connect(process.env.M_URI);
 
+
 // all strings !
 var projectSchema = new Schema({
   title:String,
@@ -17,13 +18,14 @@ var projectSchema = new Schema({
 
 var Project = mongoose.model("Project",projectSchema);
 app.use(cookieParser())
-app.use("/public", express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended:false}))
-// Thanks to IronCladDev for this function
+
+// Thanks to IronCladDev for this function 
+// I modifed it
 function renderFile(file) {
-  return (req, res) => res.sendFile(path.join(__dirname, "/templates/" + file))
+  return (req, res) => res.sendFile(path.join(__dirname, "/templates/" + file + ".html"))
 }
-app.get('/', renderFile('index.html'))
+app.get('/', renderFile('index'))
 app.get('/admin',(req,res) => {
   if(req.cookies.admin == process.env.admin){
     res.sendFile(__dirname + "/templates/admin.html")
@@ -32,12 +34,16 @@ app.get('/admin',(req,res) => {
     res.send("<h1>Login In</h1>")
   }
 })
-app.get('/work', renderFile('work.html'))
-app.get('/about', renderFile('about.html'))
+app.get('/work', renderFile('work'))
+app.get('/about', renderFile('about'))
+app.get('/contact', renderFile('contact'))
 // Thanks to IronCladDev
 app.get("/api/projects", async (req, res) => {
   let data = await Project.find({ __v: 0 });
   res.send(data);
+})
+app.get("/public/:file",(req,res) => {
+  res.sendFile(__dirname + `/public/${req.params.file}`)
 })
 
 app.post('/add-work',(req,res) => {
