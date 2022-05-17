@@ -95,5 +95,6 @@ app.post("/del-proj",(req,res) => {
     res.send("Don't try and hack me >:D")
   }
 })
+app.get("*",renderFile("404"));
 
 app.listen(Math.floor(Math.random()*9000))
